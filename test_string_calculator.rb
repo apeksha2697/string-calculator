@@ -37,4 +37,17 @@ class StringCalculatorTest < Minitest::Test
 
     assert_equal 3, @calculator.add("//;\n1;2")
   end
+
+  # handle negative strings
+  def test_negative_string
+    assert_raises(RuntimeError, "negative numbers not allowed: -1") do
+      @calculator.add("//;
+                    -1;2")
+    end
+  end
+
+  # handle numbers greater than 1000
+  def test_ignore_numbers
+    assert_equal 2, @calculator.add('10000,2')
+  end
 end
