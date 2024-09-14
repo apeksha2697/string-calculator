@@ -18,7 +18,16 @@ class StringCalculatorTest < Minitest::Test
   end
 
   # handle as many numbers possible
-  def test_two_number_string
+  def test_multiple_number_string
     assert_equal 29, @calculator.add('5,6,3,4,5,6')
-  end 
+  end
+
+  # handle multiple lines
+  def test_multiple_line_string
+    assert_equal 14, @calculator.add("5
+                                      6,3")
+
+    assert_equal 14, @calculator.add("5\n6,3")
+  end
+
 end
