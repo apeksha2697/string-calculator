@@ -8,6 +8,10 @@ class StringCalculatorTest < Minitest::Test
   end
 
   def test_empty_string
-    assert_equal 0, @calculator.add("")
+    assert_equal 0, @calculator.add('')
+  end
+
+  def test_one_number_string
+    assert_equal 0, @calculator.add('')
   end
 end
