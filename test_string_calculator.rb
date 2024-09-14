@@ -30,4 +30,11 @@ class StringCalculatorTest < Minitest::Test
     assert_equal 14, @calculator.add("5\n6,3")
   end
 
+  # handle delimiter string
+  def test_delimiter_string
+    assert_equal 3, @calculator.add("//;
+                                      1;2")
+
+    assert_equal 3, @calculator.add("//;\n1;2")
+  end
 end
